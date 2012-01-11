@@ -1,0 +1,17 @@
+{
+    "name": "jsor/dbal-sqlite3",
+    "type": "library",
+    "description": "SQLite3 driver for DBAL",
+    "keywords": ["dbal", "database", "sqlite", "sqlite3"],
+    "homepage": "https://github.com/jsor/dbal-sqlite3",
+    "license": "MIT",
+    "authors": [
+        {"name": "Jan Sorgalla", "email": "jsorgalla@googlemail.com"}
+    ],
+    "require": {
+        "php": ">=5.3.2"
+    },
+    "autoload": {
+        "psr-0": { "Jsor\\DBAL": "src/" }
+    }
+}
