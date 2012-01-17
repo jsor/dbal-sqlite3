@@ -5,8 +5,8 @@
  *
  * (c) Jan Sorgalla <jsorgalla@googlemail.com>
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  */
 
 namespace Jsor\DBAL\Driver\Sqlite3;
@@ -19,6 +19,9 @@ use PDO;
  */
 class Statement implements \IteratorAggregate, StatementInterface
 {
+    /**
+     * @var array
+     */
     protected static $_paramTypeMap = array(
         PDO::PARAM_STR  => \SQLITE3_TEXT,
         PDO::PARAM_BOOL => \SQLITE3_INTEGER,
@@ -27,11 +30,32 @@ class Statement implements \IteratorAggregate, StatementInterface
         PDO::PARAM_LOB  => \SQLITE3_BLOB
     );
 
+    /**
+     * @var \SQLite3
+     */
     protected $_conn;
+
+    /**
+     * @var \SQLite3Stmt
+     */
     protected $_stmt;
+
+    /**
+     * @var \SQLite3Result
+     */
     protected $_result;
+
+    /**
+     * @var integer
+     */
     protected $_defaultFetchStyle = PDO::FETCH_BOTH;
 
+    /**
+     * Creates a new Statement that uses the given connection handle and SQL statement.
+     *
+     * @param \SQLite3 $conn
+     * @param string $prepareString
+     */
     public function __construct(\SQLite3 $conn, $prepareString)
     {
         $this->_conn = $conn;
@@ -220,6 +244,7 @@ class Statement implements \IteratorAggregate, StatementInterface
     public function getIterator()
     {
         $data = $this->fetchAll($this->_defaultFetchStyle);
+
         return new \ArrayIterator($data);
     }
 }

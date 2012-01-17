@@ -5,8 +5,8 @@
  *
  * (c) Jan Sorgalla <jsorgalla@googlemail.com>
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  */
 
 namespace Jsor\DBAL\Driver\Sqlite3;
@@ -48,11 +48,9 @@ class Connection implements ConnectionInterface
     }
 
     /**
-     * Retrieve mysqli native resource handle.
+     * Retrieve SQLite3 native resource handle.
      *
-     * Could be used if part of your application is not using DBAL
-     *
-     * @return mysqli
+     * @return \SQLite3
      */
     public function getWrappedResourceHandle()
     {
@@ -76,6 +74,7 @@ class Connection implements ConnectionInterface
         $sql = $args[0];
         $stmt = $this->prepare($sql);
         $stmt->execute();
+
         return $stmt;
     }
 
@@ -97,6 +96,7 @@ class Connection implements ConnectionInterface
     public function exec($statement)
     {
         $this->_conn->exec($statement);
+
         return $this->_conn->changes();
     }
 
@@ -114,6 +114,7 @@ class Connection implements ConnectionInterface
     public function beginTransaction()
     {
         $this->_conn->query('BEGIN TRANSACTION');
+
         return true;
     }
 

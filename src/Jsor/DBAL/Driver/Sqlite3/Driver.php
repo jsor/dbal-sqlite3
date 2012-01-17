@@ -5,8 +5,8 @@
  *
  * (c) Jan Sorgalla <jsorgalla@googlemail.com>
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  */
 
 namespace Jsor\DBAL\Driver\Sqlite3;
@@ -50,7 +50,9 @@ class Driver implements DriverInterface
 
         if (isset($driverOptions['userDefinedExtensions'])) {
             $this->_userDefinedExtensions = array_merge(
-                $this->_userDefinedExtensions, $driverOptions['userDefinedExtensions']);
+                $this->_userDefinedExtensions,
+                $driverOptions['userDefinedExtensions']
+            );
         }
 
         if (isset($params['dbname'])) {
@@ -76,7 +78,7 @@ class Driver implements DriverInterface
     }
 
     /**
-     * Gets the database platform that is relevant for this driver.
+     * {@inheritdoc}
      */
     public function getDatabasePlatform()
     {
@@ -84,21 +86,24 @@ class Driver implements DriverInterface
     }
 
     /**
-     * Gets the schema manager that is relevant for this driver.
-     *
-     * @param \Doctrine\DBAL\Connection $conn
-     * @return \Doctrine\DBAL\Schema\SqliteSchemaManager
+     * {@inheritdoc}
      */
     public function getSchemaManager(\Doctrine\DBAL\Connection $conn)
     {
         return new \Doctrine\DBAL\Schema\SqliteSchemaManager($conn);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getName()
     {
         return 'sqlite3';
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getDatabase(\Doctrine\DBAL\Connection $conn)
     {
         $params = $conn->getParams();
