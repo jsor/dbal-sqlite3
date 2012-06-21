@@ -35,10 +35,10 @@ class Driver implements DriverInterface
     /**
      * Tries to establish a database connection to SQLite.
      *
-     * @param array $params
-     * @param string $username
-     * @param string $password
-     * @param array $driverOptions
+     * @param  array      $params
+     * @param  string     $username
+     * @param  string     $password
+     * @param  array      $driverOptions
      * @return Connection
      */
     public function connect(array $params, $username = null, $password = null, array $driverOptions = array())
@@ -59,7 +59,7 @@ class Driver implements DriverInterface
             $filename = $params['dbname'];
         } elseif (isset($params['path'])) {
             $filename = $params['path'];
-        } else if (isset($params['memory'])) {
+        } elseif (isset($params['memory'])) {
             $filename = ':memory:';
         } else {
             throw new Exception('Either a dbname, path or a memory entry is required in $params');

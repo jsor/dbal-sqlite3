@@ -54,7 +54,7 @@ class Statement implements \IteratorAggregate, StatementInterface
      * Creates a new Statement that uses the given connection handle and SQL statement.
      *
      * @param \SQLite3 $conn
-     * @param string $prepareString
+     * @param string   $prepareString
      */
     public function __construct(\SQLite3 $conn, $prepareString)
     {
