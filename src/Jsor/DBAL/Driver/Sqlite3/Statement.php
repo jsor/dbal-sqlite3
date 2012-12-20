@@ -69,7 +69,7 @@ class Statement implements \IteratorAggregate, StatementInterface
     /**
      * {@inheritdoc}
      */
-    public function bindParam($column, &$variable, $type = null)
+    public function bindParam($column, &$variable, $type = null, $length = null)
     {
         if ($type) {
             if (isset(self::$_paramTypeMap[$type])) {
@@ -233,7 +233,7 @@ class Statement implements \IteratorAggregate, StatementInterface
     /**
      * {@inheritdoc}
      */
-    public function setFetchMode($fetchMode = PDO::FETCH_BOTH)
+    public function setFetchMode($fetchMode, $arg2 = null, $arg3 = null)
     {
         $this->_defaultFetchStyle = $fetchMode;
     }
