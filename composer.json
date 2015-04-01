@@ -1,6 +1,5 @@
 {
     "name": "jsor/dbal-sqlite3",
-    "type": "library",
     "description": "SQLite3 driver for DBAL",
     "keywords": ["dbal", "database", "sqlite", "sqlite3"],
     "homepage": "https://github.com/jsor/dbal-sqlite3",
