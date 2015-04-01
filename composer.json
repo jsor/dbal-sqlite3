@@ -12,6 +12,8 @@
         "php": ">=5.3.2"
     },
     "autoload": {
-        "psr-0": { "Jsor\\DBAL\\Driver\\Sqlite3": "src/" }
+        "psr-4": {
+            "Jsor\\DBAL\\Driver\\Sqlite3\\": "src/"
+        }
     }
 }
