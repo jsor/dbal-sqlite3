@@ -63,7 +63,7 @@ class Statement implements \IteratorAggregate, StatementInterface
             if (isset(self::$_paramTypeMap[$type])) {
                 $type = self::$_paramTypeMap[$type];
             } else {
-                throw new Exception("Unkown type: '{$type}'");
+                throw new Exception("Unknown type: '{$type}'");
             }
 
             return $this->_stmt->bindParam($column, $variable, $type);
@@ -81,7 +81,7 @@ class Statement implements \IteratorAggregate, StatementInterface
             if (isset(self::$_paramTypeMap[$type])) {
                 $type = self::$_paramTypeMap[$type];
             } else {
-                throw new Exception("Unkown type: '{$type}'");
+                throw new Exception("Unknown type: '{$type}'");
             }
 
             return $this->_stmt->bindValue($param, $value, $type);
